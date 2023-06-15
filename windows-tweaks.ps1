@@ -384,6 +384,14 @@ Function UninstallMSEdgeWebView2 {
 }
 
 Function Personalize {
+    Write-Host "Hiding Chat icon..."
+    If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People")) {
+        New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" | Out-Null
+    }
+    Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarMn" -Type DWord -Value 0
+
+    
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Type DWord -Value 0
     Write-Host "Showing task manager details..."
     $taskmgr = Start-Process -WindowStyle Hidden -FilePath taskmgr.exe -PassThru
     Do {
