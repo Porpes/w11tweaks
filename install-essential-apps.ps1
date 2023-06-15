@@ -1,10 +1,2 @@
-choco install -y microsoft-windows-terminal
-choco install -y autohotkey
-choco install -y GoogleChrome
-choco install -y Firefox
-choco install -y NotepadPlusPlus
-choco install -y FoxitReader
-choco install -y adobereader
-choco install -y 7zip
-choco install -y bitwarden
-choco install -y powertoys
+winget install whatsapp.whatsapp
+winget install mozilla.firefox
